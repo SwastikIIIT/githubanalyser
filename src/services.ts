@@ -79,15 +79,15 @@ export interface Commit{
   }[]
 };
 
-const headers = {
-  Authorization: `token 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`,
-  'Content-Type': 'application/json'
-};
+// const headers = {
+//   Authorization: `token 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`,
+//   'Content-Type': 'application/json'
+// };
 
 
 export const fetchUserData=async(username:string)=>{
   try {
-    const response=await fetch(`https://api.github.com/users/${username}`,{headers});
+    const response=await fetch(`https://api.github.com/users/${username}`);
     if(!response.ok) {
       return {success:false,message:'User not found'};
     }
@@ -102,7 +102,7 @@ export const fetchUserData=async(username:string)=>{
 
 export const fetchUserRepos=async(username:string)=>{
   try {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`,{headers});
+    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     if(!response.ok)
     return {success:false,message:'No repo found'};
     const result=await response.json();
@@ -163,7 +163,7 @@ export const processCommits=(pushEvents:GitHubEvent[],createEvents:GitHubEvent[]
 
  export const fetchEvents=async(username:string)=>{
       try{
-          const response=await fetch(`https://api.github.com/users/${username}/events?per_page=100`,{headers});
+          const response=await fetch(`https://api.github.com/users/${username}/events?per_page=100`);
           if(!response.ok) {
             return {success:false,message:'Events not found'};
           }
