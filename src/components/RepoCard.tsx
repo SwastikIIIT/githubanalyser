@@ -1,5 +1,5 @@
 import { Card, CardContent} from '@/components/ui/card';
-import { Repository } from '@/services/github';
+import { Repository } from '@/services';
 import { Calendar, Code, GitFork, Star } from 'lucide-react';
 
 
