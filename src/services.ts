@@ -79,10 +79,10 @@ export interface Commit{
   }[]
 };
 
-// const headers = {
-//   Authorization: `token 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`,
-//   'Content-Type': 'application/json'
-// };
+const headers = {
+  Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+  'Content-Type': 'application/json'
+};
 
 
 export const fetchUserData=async(username:string)=>{
