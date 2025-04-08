@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/pagination"
 import { Commit, fetchEvents, fetchUserData, fetchUserRepos, GitHubEvent, processCommits, Repository, UserData } from '@/services';
 import Loader1 from './Loader1';
-import Loader2 from './Loader2';
 import PushEvent from './PushEvent';
 import WatchEvent from './WatchEvent';
 import CreateEvent from './CreateEvent';
@@ -27,7 +26,6 @@ const GitHubProfileAnalyzer = () => {
   const [repos,setRepos]=useState<Repository[]>([]);
   const [commitData, setCommitData] = useState<Commit>({pushEvents:{date:[],commits:[]},createEvents:[],watchEvents:[]});  
   const [loading1,setLoading1]=useState<boolean>(false);
-  const [loading2,setLoading2]=useState<boolean>(false);
   const [currentPage,setCurrentPage]=useState<number>(1);
   const itemsperPage=6;
   const totalPages=Math.ceil(repos.length/itemsperPage);
@@ -88,7 +86,6 @@ const GitHubProfileAnalyzer = () => {
   };
 
   const fetchCommitActivity=async()=>{
-    setLoading2(true);
     try
     {
         const eventResponse=await fetchEvents(username);
@@ -112,9 +109,6 @@ const GitHubProfileAnalyzer = () => {
     {
       console.log(err);
       toast.error("Failed to fetch commit activity");
-    }
-    finally{
-      setLoading2(false);
     }
   }
 
@@ -241,9 +235,7 @@ const GitHubProfileAnalyzer = () => {
                 <h3 className="flex justify-center text-xl font-semibold mb-4 text-gray-800 pl-1">
                     Activity Dashboard
                   </h3>
-                  {loading2 ? 
-                    <Loader2/>:(
-                      <>
+
                       <div className="space-y-8">
                         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
                             <div className="bg-blue-50 px-4 py-3 border-b border-gray-200">
@@ -263,17 +255,15 @@ const GitHubProfileAnalyzer = () => {
                             </div>
                       </div>
                       
-                      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
                             <div className="bg-purple-50 px-4 py-3 border-b border-gray-200">
                               <h4 className="font-medium text-purple-800">Create Events</h4>
                             </div>
                             <div className="p-4">
                               <CreateEvent username={username} createEvents={commitData.createEvents} />
                             </div>
-                          </div>
+                        </div>
                       </div>
-                      </>
-                    )}
                     </TabsContent>
                   </Tabs>
                   </>
