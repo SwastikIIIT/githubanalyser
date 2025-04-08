@@ -3,7 +3,7 @@
 A modern React application to analyze GitHub users, visualize their activities, and explore repositories. Built with React, TypeScript, and Vite with a sleek UI powered by shadcn/ui components.
 
 ![GitHub Profile Analyzer Screenshot](https://github.com/user-attachments/assets/e2d7dfd1-e99f-4bc8-8913-640ecf911604)
-g)
+
 
 ## Features
 
@@ -20,13 +20,10 @@ Check out the live demo [here](https://githubanalyser.vercel.app/)
 
 ## Tech Stack
 
-- React 18
+- React js
 - TypeScript
-- Vite
-- shadcn/ui components
+- Shadcn/ui components
 - Tailwind CSS
-- Lucide React icons
-- React hooks
 - GitHub REST API
 
 ## Installation and Setup
