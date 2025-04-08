@@ -5,20 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Search, Github} from 'lucide-react';
 import { toast } from 'sonner';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination"
 import { Commit, fetchEvents, fetchUserData, fetchUserRepos, GitHubEvent, processCommits, Repository, UserData } from '@/services';
 import Loader1 from './Loader1';
 import PushEvent from './PushEvent';
 import WatchEvent from './WatchEvent';
 import CreateEvent from './CreateEvent';
 import RepoCard from './RepoCard';
+import PaginationComp from './PaginationComp';
 
 const GitHubProfileAnalyzer = () => {
   const [username,setUsername]=useState<string>('');
@@ -198,35 +191,9 @@ const GitHubProfileAnalyzer = () => {
                       <RepoCard repos={filteredRepos}/>
                     </div>
 
-                    <Pagination className="flex justify-center items-center mt-6">
-                      <PaginationContent>
-                        <PaginationItem>
-                          <PaginationPrevious 
-                            className={`cursor-pointer ${currentPage===1?'opacity-50 pointer-events-none':''}`}
-                            onClick={()=>setCurrentPage((prev)=>Math.max(1,prev-1))}
-                          />
-                          </PaginationItem>
-                         {arr.map((page:number,index:number)=>{
-                          return (
-                            <PaginationItem className="cursor-pointer" key={index}>
-                              <PaginationLink 
-                                isActive={page===currentPage}
-                                onClick={()=>setCurrentPage(page)}
-                                >
-                                    {page}
-                              </PaginationLink>
-                            </PaginationItem>
-                          )
-                        })
-                        }
-                        <PaginationItem>
-                          <PaginationNext 
-                             className={`cursor-pointer ${currentPage===totalPages?'opacity-50 pointer-events-none':''}`}
-                             onClick={()=>setCurrentPage((prev)=>Math.min(totalPages,prev+1))}
-                          />
-                          </PaginationItem>
-                      </PaginationContent>
-                  </Pagination>
+                    <div className='flex items-center justify-center mt-6'>
+                     <PaginationComp setCurrentPage={setCurrentPage} totalPages={totalPages} arr={arr} currentPage={currentPage}/>
+                   </div>
                   </>
                   )}
                 </TabsContent>
