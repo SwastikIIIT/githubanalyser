@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Github,GithubIcon} from 'lucide-react';
+import { Search, Github,GitHubIcon} from 'lucide-react';
 import { toast } from 'sonner';
 import { Commit, fetchEvents, fetchUserData, fetchUserRepos, GitHubEvent, processCommits, Repository, UserData } from '@/services';
 import Loader1 from './Loader1';
