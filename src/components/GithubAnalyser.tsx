@@ -238,13 +238,7 @@ const GitHubProfileAnalyzer = () => {
         </CardContent>
 
         <CardFooter className="flex justify-center items-center text-sm text-gray-500">
-        <span>Built with ❤️ by Swastik Sharma</span>
-          <span>•</span>
-          <a href="https://github.com/yourusername" className="hover:text-blue-600 transition-colors">
-            <Github className="h-4 w-4 inline mr-1" />GitHub
-          </a>
-          <span>•</span>
-          <span>© {new Date().getFullYear()}</span>
+        <span>Built with ❤️ by Swastik Sharma</span>{" "}<span>© {new Date().getFullYear()}</span>
         </CardFooter>
       </Card>
     </div>
