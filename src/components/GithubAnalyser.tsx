@@ -238,7 +238,7 @@ const GitHubProfileAnalyzer = () => {
         </CardContent>
 
         <CardFooter className="flex justify-center items-center text-sm text-gray-500">
-        <span>Built with ❤️ by Swastik Sharma</span>{" "}<span>© {new Date().getFullYear()}</span>
+        <span>Built with by Swastik Sharma</span>{" "}<span>© {new Date().getFullYear()}</span>
         </CardFooter>
       </Card>
     </div>
