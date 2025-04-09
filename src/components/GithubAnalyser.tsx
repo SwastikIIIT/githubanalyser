@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Github,GitHubIcon} from 'lucide-react';
+import { Search, Github} from 'lucide-react';
 import { toast } from 'sonner';
 import { Commit, fetchEvents, fetchUserData, fetchUserRepos, GitHubEvent, processCommits, Repository, UserData } from '@/services';
 import Loader1 from './Loader1';
@@ -241,7 +241,7 @@ const GitHubProfileAnalyzer = () => {
         <span>Built with ❤️ by Swastik Sharma</span>
           <span>•</span>
           <a href="https://github.com/yourusername" className="hover:text-blue-600 transition-colors">
-            <GitHubIcon className="h-4 w-4 inline mr-1" />GitHub
+            <Github className="h-4 w-4 inline mr-1" />GitHub
           </a>
           <span>•</span>
           <span>© {new Date().getFullYear()}</span>
